@@ -18,46 +18,6 @@ class ListPage extends StatelessWidget {
 }
 
 class RandomWords extends HookWidget {
-  // final _suggestions = <WordPair>[];
-  // final _saved = <WordPair>{};
-  // final saved = useState(<WordPair>{});
-
-  // void _pushSaved() {
-  //   router.push(
-  //     FavoriteListRoute(
-  //       savedPair: _saved,
-  //       // savedPair: saved.value),
-  //     ),
-  //   );
-  // Navigator.of(context).push(
-  //   MaterialPageRoute<void>(
-  //     builder: (BuildContext context) {
-  //       final tiles = _saved.map(
-  //         (WordPair pair) {
-  //           return ListTile(
-  //             title: Text(
-  //               pair.asPascalCase,
-  //               style: _biggerFont,
-  //             ),
-  //           );
-  //         },
-  //       );
-  //       final divided = ListTile.divideTiles(
-  //         context: context,
-  //         tiles: tiles,
-  //       ).toList();
-
-  //       return Scaffold(
-  //         appBar: AppBar(
-  //           title: Text('Saved Suggestions'),
-  //         ),
-  //         body: ListView(children: divided),
-  //       );
-  //     },
-  //   ),
-  // );
-  // }
-
   @override
   Widget build(BuildContext context) {
     final _suggestions = <WordPair>[];
@@ -66,10 +26,10 @@ class RandomWords extends HookWidget {
     void _pushSaved() {
       print(_saved);
       router.push(
-        FavoriteListRoute(
-          savedPair: _saved,
-        ),
-      );
+          // FavoriteListRoute(
+          //   savedPair: _saved,
+          // ),
+          MapGuideRoute());
     }
 
     return Scaffold(
@@ -90,8 +50,6 @@ class RandomWords extends HookWidget {
                 _suggestions.addAll(generateWordPairs().take(10)); /*4*/
               }
               final pair = _suggestions[index];
-              print('## ListView');
-              print(_saved);
 
               return ListTilePanel(
                   pair: pair,
